@@ -5,10 +5,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.oip.helpdesk.repository.DuenoRepository;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name = "mascota")
@@ -18,7 +16,7 @@ public class Mascota {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private
-    Integer id;
+    Long id;
 
     @Column(name="name")
     private
@@ -37,12 +35,13 @@ public class Mascota {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Dueno dueno;
 
+    private ArrayList<Visita> citas;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,5 +75,13 @@ public class Mascota {
 
     public void setDueno(Dueno dueno) {
         this.dueno = dueno;
+    }
+
+    public ArrayList<Visita> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(ArrayList<Visita> citas) {
+        this.citas = citas;
     }
 }

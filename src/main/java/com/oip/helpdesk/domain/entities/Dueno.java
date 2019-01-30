@@ -15,7 +15,7 @@ public class Dueno {
     @Id
     @Column(name="id")
     private
-    Integer id;
+    Long id;
 
     @Column(name="name")
     private
@@ -25,12 +25,19 @@ public class Dueno {
     private
     String direccion;
 
+    @Column(name="pointx")
+    private
+    String pointx;
 
-    public Integer getId() {
+    @Column(name="pointy")
+    private
+    String pointy;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,4 +57,19 @@ public class Dueno {
         this.direccion = direccion;
     }
 
+    public String getPointx() {
+        return pointx;
+    }
+
+    public void setPointx(String pointx) {
+        this.pointx = pointx;
+    }
+
+    public String getPointy() {
+        return pointy;
+    }
+
+    public void setPointy(String pointy) {
+        this.pointy = pointy;
+    }
 }
