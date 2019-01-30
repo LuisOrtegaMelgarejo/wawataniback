@@ -6,7 +6,7 @@
 	<groupId>com.oip.helpdesk</groupId>
 	<artifactId>HelpDeskOIP</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>HelpDeskOIP</name>
 	<description>Mesa de Ayuda OIP</description>
@@ -76,9 +76,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
+		<finalName>rimac</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

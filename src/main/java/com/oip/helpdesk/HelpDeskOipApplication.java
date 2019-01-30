@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableConfigurationProperties(StorageProperties.class)
-public class HelpDeskOipApplication{
+public class HelpDeskOipApplication extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		SpringApplication.run(HelpDeskOipApplication.class, args);
 	}
