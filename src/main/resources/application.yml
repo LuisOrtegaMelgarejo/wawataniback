@@ -1,0 +1,52 @@
+# config context path to "/" by setting an empty string
+server:
+  contextPath:
+  port: 3000
+
+# JACKSON
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+
+    ## MYSQL
+    #url: jdbc:mysql://localhost/help_desk
+    #username: root
+    #password:
+    #driver-class-name: com.mysql.jdbc.Driver
+
+    ## MS SQLSERVER
+
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://cloudbrain-server-db.database.windows.net;databaseName=rimac
+    username: superuser
+    password: CloudBrain2018
+    platform: mssql
+
+  h2:
+    console:
+      enabled: true
+
+
+  jpa:
+    hibernate:
+      #ddl-auto: create-drop
+      ddl-auto: update
+
+
+jwt:
+  header: Authorization
+  secret: tasksSecret
+  expiration: 604800
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+
+
+security.basic.enable: false
+#logging:
+#  level:
+#    org.springframework:
+#      security: DEBUG
