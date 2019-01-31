@@ -14,7 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableConfigurationProperties(StorageProperties.class)
+
 public class HelpDeskOipApplication{
+
 	public static void main(String[] args) {
 		SpringApplication.run(HelpDeskOipApplication.class, args);
 	}
@@ -22,6 +24,7 @@ public class HelpDeskOipApplication{
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
 		return (args) -> {
+			storageService.deleteAll();
 			storageService.init();
 		};
 	}
