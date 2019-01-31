@@ -3,16 +3,14 @@ package com.oip.helpdesk.domain.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "dueno")
 public class Dueno {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private
     Long id;

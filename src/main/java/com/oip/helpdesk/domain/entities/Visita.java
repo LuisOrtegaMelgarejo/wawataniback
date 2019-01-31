@@ -1,16 +1,14 @@
 package com.oip.helpdesk.domain.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "visita")
 public class Visita {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
     private
     Integer id;
@@ -49,5 +47,13 @@ public class Visita {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public Long getMascotaId() {
+        return mascotaId;
+    }
+
+    public void setMascotaId(Long mascotaId) {
+        this.mascotaId = mascotaId;
     }
 }

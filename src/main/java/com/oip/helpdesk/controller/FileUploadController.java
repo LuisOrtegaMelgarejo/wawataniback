@@ -45,7 +45,7 @@ public class FileUploadController {
         try{
             storageService.store(file);
         }catch (Exception e){
-            return ResponseEntity.status(500).build();
+            return ResponseEntity.status(500).body(e.toString());
         }
         return ResponseEntity.ok().build();
     }
