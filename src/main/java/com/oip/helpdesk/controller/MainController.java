@@ -22,6 +22,7 @@ import com.oip.helpdesk.repository.MascotaRepository;
 @RestController
 @RequestMapping("/api")
 
+
 public class MainController {
 
 	@Autowired
@@ -29,6 +30,7 @@ public class MainController {
 
 	@Autowired
 	private VisitaRepository visitaRepository;
+
 	@Autowired
 	private DuenoRepository duenoRepository;
 
@@ -63,7 +65,7 @@ public class MainController {
 		return mascota;
 	}
 
-	@PostMapping("/mascotas/dueno")
+	@PostMapping("/dueno")
 	public ResponseEntity<?> saveDueno(@RequestBody HashMap<String,String> body){
 		Dueno dueno = new Dueno();
 		try {
@@ -78,4 +80,23 @@ public class MainController {
 		return ResponseEntity.ok().build();
 	}
 
+	@GetMapping("/dueno")
+	public List<Dueno> getDueno(){
+		return duenoRepository.findAll();
+	}
+
+	@PostMapping("/mascotas")
+	public Mascota saveMascota(@RequestBody HashMap<String,String> body){
+		Mascota mascota = new Mascota();
+		try {
+			mascota.setName(body.get("name"));
+			mascota.setType(body.get("type"));
+			Dueno dueno = duenoRepository.findById(new Long(body.get("dueno_id"))).orElseThrow(() -> new ResourceNotFoundException("","",""));
+			mascota.setDueno(dueno);
+			mascotaRepository.save(mascota);
+		}catch (Exception e){
+			return null;
+		}
+		return mascota;
+	}
 }
